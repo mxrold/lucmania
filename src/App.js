@@ -1,10 +1,11 @@
 import Header from './components/Header'
-
+import Main from './components/Main'
 
 const App = () => {
   return (
-    <div>
+    <div className="h-screen">
       <Header />
+      <Main />
     </div>
   )
 }
