@@ -1,28 +1,39 @@
+import { useHistory } from "react-router-dom"
 import Button from './global/Button'
 import ImageMain from '../assets/static/main-image.svg'
 
 const Main = () => {
+    const history = useHistory()
 
     const dataButton = [
         {
             title: 'Películas',
-            key: 'peliculas-btn'
+            key: 'movie'
         },
         {
             title: 'Series',
-            key: 'series-btn'
+            key: 'tv'
         }
     ]
+
+    const handleGetGenders = (genre) => {
+        history.push(`/genres-${genre}`)
+    }
 
     return (
         <main className="h-5/6 p-3 bg-yellow-400 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
             <div className="text-center md:w-3/5 md:text-left">
                 <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
                 <h3 className="mb-6 text-lg font-normal sm:text-2xl  text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
-                <div className="mb-6 w-full flex justify-between">
+                <div className="mb-6 w-full flex justify-around">
                     {
-                        dataButton.map(btn => 
-                            <Button text={btn.title} key={btn.key} />
+                        dataButton.map(data => 
+                            <Button 
+                                text={data.title} 
+                                key={data.key} 
+                                onClick={() => handleGetGenders(data.key)}
+                                width={'w-2/5'}
+                            />
                         )
                     }
                 </div>
