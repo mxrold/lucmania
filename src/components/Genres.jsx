@@ -48,26 +48,26 @@ const Genres = () => {
                 genres.length === 0
                 ? <h1>Cargando</h1>
                 : <>
-                    <div className="w-5/6 mx-auto mb-4">
-                        <h2 className="text-4xl font-semibold sm:text-4xl text-gray-800">Géneros de {path === 'movie' ? 'películas' : 'series'}</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                    <div className="w-5/6 max-w-screen-xl mx-auto mb-4">
+                        <h2 className="text-2xl font-semibold sm:text-4xl text-gray-800">Géneros de {path === 'movie' ? 'películas' : 'series'}</h2>
+                        <p className="text-lg sm:text-xl text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                     </div>
 
-                    <div className="grid grid-cols-4 grid-rows-4 gap-4 w-5/6 mx-auto">
+                    <div className="grid grid-cols-2 grid-rows-2 gap-4 w-5/6 max-w-screen-xl mx-auto sm:grid-cols-3 sm:grid-rows-3 md:grid-cols-4 md:grid-rows-4">
                         {
                             genres.map(item => 
                                 <GenresItem item={item} />
                             )
                         }
                     </div>
-                    <div className="flex justify-between w-5/6 mx-auto mt-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between w-5/6 max-w-screen-xl mx-auto mt-4">
                         {
                             dataButton.map(item => 
                                 <Button 
                                     text={item.title} 
                                     key={item.key}
                                     onClick={() => handleRouteBtn(item.key)}
-                                    width={'w-48'}
+                                    width={'w-full sm:w-48'}
                                 />
                             )
                         }

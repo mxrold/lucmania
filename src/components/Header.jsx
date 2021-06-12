@@ -9,7 +9,7 @@ const Header = () => {
                 </figure>
                 <nav>
                     <ul>
-                        <li className="w-9/12 mx-auto sm:w-max border-2 border-gray-900 rounded text-center">
+                        <li className="w-8/12 mx-auto sm:w-max border-2 border-gray-900 rounded text-center">
                             <a className="p-3 text-base sm:text-lg font-medium tracking-wide text-gray-900" href="#">Favoritos</a>
                         </li>
                     </ul>

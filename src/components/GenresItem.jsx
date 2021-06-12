@@ -11,7 +11,7 @@ const GenresItem = ({ item }) => {
     return (
         <button
             onClick={() => handleChangeColor(item.id, item.name)}
-            className={`h-14 border-4 text-lg font-medium ${isPresset ? 'bg-yellow-300' : 'bg-transparent'} text-gray-800 border-yellow-300 focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-sm`}
+            className={`h-16 sm:h-14 text-lg font-medium ${isPresset ? 'bg-yellow-300' : 'bg-transparent'} text-gray-800 border-4 border-yellow-300 rounded-sm focus:outline-none focus:ring-4 focus:ring-gray-600`}
         >
             {item.name}    
         </button>

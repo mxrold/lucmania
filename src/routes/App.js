@@ -5,7 +5,7 @@ import Genres from '../components/Genres'
 
 const App = () => {
   return (
-    <div className="h-screen">
+    <div className="h-full md:h-screen">
       <BrowserRouter>
         <Layout>
           <Switch>
