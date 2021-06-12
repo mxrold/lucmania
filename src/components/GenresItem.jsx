@@ -1,11 +1,18 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 
 const GenresItem = ({ item }) => {
     const [ isPresset, setIsPresset ] = useState(false)
 
     const handleChangeColor = (id, name) => {
         setIsPresset(!isPresset)
+
+        if(isPresset) {
+            sessionStorage.removeItem('Name')
+            sessionStorage.removeItem('Id')
+        } else {
+            sessionStorage.setItem('Id', id)
+            sessionStorage.setItem('Name', name)
+        }
     }
 
     return (

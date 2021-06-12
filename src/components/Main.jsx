@@ -17,11 +17,11 @@ const Main = () => {
     ]
 
     const handleGetGenders = (genre) => {
-        history.push(`/genres-${genre}`)
+        history.push(`/${genre}`)
     }
 
     return (
-        <main className="h-5/6 p-3 bg-yellow-400 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
+        <main className="height-90 p-3 bg-yellow-400 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
             <div className="text-center md:w-3/5 md:text-left">
                 <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
                 <h3 className="mb-6 text-lg font-normal sm:text-2xl  text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
