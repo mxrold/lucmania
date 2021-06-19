@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
+import FetchData from '../utils/FetchData'
 import GenresItem from './GenresItem'
 import Button from './global/Button'
 
@@ -11,16 +12,16 @@ const Genres = () => {
 
     useEffect(() => {
         const currentPath = location.pathname
-        const URL_BASE = `https://api.themoviedb.org/3/genre/${currentPath}/list?api_key=&language=es-MX`
+        const URL_BASE = `/genre/${currentPath}/list`
         setPath(currentPath)
 
-        const fetchGenres = async () => {
-            const response = await fetch(URL_BASE)
-            const responseJson = await response.json()
-            setGenres(responseJson.genres)
+        const fetchGenres = async (url) => {
+            const responseGenres = await FetchData(url, '')
+            setGenres(responseGenres.genres)
         }
 
-        fetchGenres()
+        fetchGenres(URL_BASE)
+
     }, [])
 
 
@@ -29,13 +30,13 @@ const Genres = () => {
     const handleRouteBtn = () => history.push(`${path}/results`)
 
     return (
-        <main className="flex flex-col justify-center items-center height-90 bg-gray-100">
+        <main className="flex flex-col justify-center items-center height-90 py-9 bg-gray-100">
             {
                 genres.length === 0
                 ? <h1>Cargando</h1>
                 : <>
                     <div className="w-5/6 max-w-screen-xl mx-auto mb-4">
-                        <h2 className="text-2xl font-semibold sm:text-4xl text-gray-800">Géneros de {nameFormatPath()}</h2>
+                        <h2 className="text-3xl font-semibold sm:text-4xl text-gray-800">Géneros de {nameFormatPath()}</h2>
                         <p className="text-lg sm:text-xl text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                     </div>
 

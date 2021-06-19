@@ -21,21 +21,23 @@ const Main = () => {
     }
 
     return (
-        <main className="height-90 p-3 bg-yellow-400 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
-            <div className="text-center md:w-3/5 md:text-left">
-                <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
-                <h3 className="mb-6 text-lg font-normal sm:text-2xl  text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
-                <div className="mb-6 w-full flex justify-around">
-                    {
-                        dataButton.map(data => 
-                            <Button 
-                                text={data.title} 
-                                key={data.key} 
-                                onClick={() => handleGetGenders(data.key)}
-                                width={'w-2/5'}
-                            />
-                        )
-                    }
+        <main className="height-90 p-3 bg-yellow-300 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
+            <div className="relative top-4 right-4 h-max bg-gray-800 rounded">
+                <div className="relative bottom-4 left-4 p-6 text-center md:w-full md:text-left bg-gray-300 border-2 border-gray-800 rounded">
+                    <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
+                    <h3 className="mb-6 text-lg font-normal sm:text-2xl  text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
+                    <div className="mb-6 sm:mb-0 w-full flex justify-around">
+                        {
+                            dataButton.map(data => 
+                                <Button 
+                                    text={data.title} 
+                                    key={data.key} 
+                                    onClick={() => handleGetGenders(data.key)}
+                                    width={'w-2/5'}
+                                />
+                            )
+                        }
+                    </div>
                 </div>
             </div>
             <figure className=" md:w-2/4">

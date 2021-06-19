@@ -6,7 +6,7 @@ import FilteredResults from '../components/FilteredResults'
 
 const App = () => {
   return (
-    <div className="h-full md:h-screen md:overflow-hidden">
+    <div className="h-full xl:h-screen xl:overflow-hidden">
       <BrowserRouter>
         <Layout>
           <Switch>
