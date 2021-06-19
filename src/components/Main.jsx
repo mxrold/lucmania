@@ -21,7 +21,8 @@ const Main = () => {
     }
 
     return (
-        <main className="height-90 p-3 bg-yellow-300 flex flex-col justify-center md:flex-row md:items-center  md:px-10">
+        <main className="flex justify-center items-center height-90 p-3 bg-yellow-300 md:px-10">
+            <div className="flex flex-col justify-center md:flex-row md:items-center max-w-screen-2xl">
             <div className="relative top-4 right-4 h-max bg-gray-800 rounded">
                 <div className="relative bottom-4 left-4 p-6 text-center md:w-full md:text-left bg-gray-300 border-2 border-gray-800 rounded">
                     <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
@@ -43,6 +44,7 @@ const Main = () => {
             <figure className=" md:w-2/4">
                 <img className="w-64 mx-auto md:w-96" src={ImageMain} alt=""/>
             </figure>
+            </div>
         </main>
     )
 }

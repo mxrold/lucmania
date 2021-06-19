@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import Main from '../components/Main'
 import Genres from '../components/Genres'
 import FilteredResults from '../components/FilteredResults'
+import Loader from '../components/global/Loader'
 
 const App = () => {
   return (
@@ -12,8 +13,11 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={Main} />
             {/* <Route exact path="/tv" component={Genres} /> */}
-            <Route exact path="/:id" component={Genres} />
-            <Route exact path="/:id/results" component={FilteredResults} />
+            <Route exact path="/tv" component={Genres} />
+            <Route exact path="/movie" component={Genres} />
+            <Route exact path="/tv/results" component={FilteredResults} />
+            <Route exact path="/movie/results" component={FilteredResults} />
+            <Route exact path="/loader" component={Loader} />
           </Switch>
         </Layout>
       </BrowserRouter>

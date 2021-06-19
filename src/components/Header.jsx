@@ -4,7 +4,7 @@ import Logo from '../assets/static/logo.svg'
 const Header = () => {
     return (
         <header className="md:height-10 p-3 bg-yellow-300 border-b-2 border-gray-900">
-            <div className="sm:container sm:flex sm:flex-row sm:justify-between sm:items-center max-w-screen-xl mx-auto">
+            <div className="sm:container sm:flex sm:flex-row sm:justify-between sm:items-center max-w-screen-2xl mx-auto">
                 <figure className="mb-4 sm:mb-0">
                     <Link to="/">
                         <img className="w-60 mx-auto" src={Logo} alt="Logo Lucmania" />

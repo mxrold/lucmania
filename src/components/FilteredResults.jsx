@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
 import Button from './global/Button'
+import Loader from './global/Loader'
 import DefaultImage from '../assets/static/default-poster-image.jpg'
 import HeartFill from '../assets/static/heart-fill.png'
 import HeartOutline from '../assets/static/heart-outline.png'
@@ -12,7 +13,6 @@ const FilteredResults = () => {
     const [ genre, setGenre ] = useState([])
     const [ path, setPath ] = useState('')
     const [ dataRandom, setDataRandom ] = useState([])
-    const [ isFavorite, setIsFavorite ] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const location = useLocation()
 
@@ -92,13 +92,13 @@ const FilteredResults = () => {
 
     return (
         <main className="flex flex-col justify-center items-center height-90 py-9 bg-gray-100">
-            <div className="w-11/12 sm:w-5/6 max-w-screen-xl mx-auto">
+            <div className="w-11/12 sm:w-5/6 max-w-screen-2xl mx-auto">
                 <h2 className="mb-4 text-3xl font-semibold sm:text-4xl text-gray-800">{path === '/movie' ? 'Películas - ' : 'Series - '}{genre[1]}</h2>
                 {  
                     loading === true 
-                    ? <p>Cargando</p> 
+                    ? <Loader numberItems={6}/>
                     : <>
-                        <div className="grid grid-cols-1 grid-rows-6 gap-4 w-full max-w-screen-xl mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
+                        <div className="grid grid-cols-1 grid-rows-6 gap-4 w-full mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
                             {           
                                 dataRandom.map(item => 
                                     <Link key={item.id} to="#" className="flex sm:flex-col bg-gray-200 shadow-md border border-gray-300 rounded-sm focus:outline-none focus:ring-4 focus:ring-gray-600">  
@@ -117,7 +117,7 @@ const FilteredResults = () => {
                                 )                           
                             }
                         </div>
-                        <div className="flex flex-col justify-center items-center w-full max-w-screen-xl mt-4">
+                        <div className="flex flex-col justify-center items-center w-full mt-4">
                             <Button 
                                 text={`Volver a buscar sobre ${genre[1]}`} 
                                 onClick={() => handleNewResults()}
