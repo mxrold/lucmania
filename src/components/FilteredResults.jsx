@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
+import NumberRandom from '../utils/NumberRandom'
 import Button from './global/Button'
 import Loader from './global/Loader'
 import DefaultImage from '../assets/static/default-poster-image.jpg'
-import HeartFill from '../assets/static/heart-fill.png'
-import HeartOutline from '../assets/static/heart-outline.png'
-
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min
 
 const FilteredResults = () => {
     const [ genre, setGenre ] = useState([])
@@ -41,7 +38,7 @@ const FilteredResults = () => {
 
         let data = []
         while(data.length < 6) {
-            const URL_RANDOM = `${currentPath}/${getRandomInt(1, responseId.id)}`
+            const URL_RANDOM = `${currentPath}/${NumberRandom(1, responseId.id)}`
             const responseData = await FetchData(URL_RANDOM, '')
             if(responseData.status_code !== 34 && responseData.adult !== true) {
                 data.push(responseData)         
@@ -55,7 +52,7 @@ const FilteredResults = () => {
     const fetchData = async (currentPath) => {
         setLoading(true)
         const URL_RANDOM = `/discover${currentPath}`
-        const URL_SECOND_PARAM = `&with_genres=${genre}&page=${getRandomInt(1, 500)}&include_adult=false`
+        const URL_SECOND_PARAM = `&with_genres=${genre}&page=${NumberRandom(1, 500)}&include_adult=false`
         const responseData = await FetchData(URL_RANDOM, URL_SECOND_PARAM)
 
         randomItems(responseData.results)
@@ -66,7 +63,7 @@ const FilteredResults = () => {
         let data = []
       
         while(data.length < 6) {
-            const getRandom = getRandomInt(0, items.length)
+            const getRandom = NumberRandom(0, items.length)
             data.push(items[getRandom])
             items.splice(getRandom, 1)
         }

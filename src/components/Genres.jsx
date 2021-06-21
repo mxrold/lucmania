@@ -22,7 +22,6 @@ const Genres = () => {
         }
 
         fetchGenres(URL_BASE)
-
     }, [])
 
 
