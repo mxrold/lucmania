@@ -3,10 +3,35 @@
 @tailwind utilities;
 
 @layer utilities {
+  @media (min-width: 640px) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #111827;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #4B5563;
+    }
+  }
+
   .height-10 {
     height: 10%;
   }
+
   .height-90 {
     height: 90%;
+  }
+
+  .scroll-x {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+  }
+
+  .scroll-x-card {
+    scroll-snap-align: center;
   }
 }

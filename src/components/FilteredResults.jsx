@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
 import NumberRandom from '../utils/NumberRandom'
+import FilteredItem from './FilteredItem'
+import FilteredDetailItem from './FilteredDetailItem'
 import Button from './global/Button'
 import Loader from './global/Loader'
-import DefaultImage from '../assets/static/default-poster-image.jpg'
 
 const FilteredResults = () => {
     const [ genre, setGenre ] = useState([])
     const [ path, setPath ] = useState('')
     const [ dataRandom, setDataRandom ] = useState([])
+    const [ showModal, setShowModal ] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const location = useLocation()
 
@@ -27,8 +29,6 @@ const FilteredResults = () => {
             const formatName = nameGenre.charAt(0).toLowerCase() + nameGenre.slice(1)
             setGenre([ idGenre,  formatName ])
         }
-
-        sessionStorage.clear()
     }, [])
 
     const fetchIdLatest = async (currentPath) => {
@@ -77,15 +77,7 @@ const FilteredResults = () => {
         } else {
             fetchData(path)
         }
-    }
-
-    const formatWords = (value, leng) => {
-        if(value === undefined) {
-            return 'Sin título'
-        } else {
-            return value.length > leng ? value.slice(0, leng) + '...' : value
-        }
-    } 
+    }           
 
     return (
         <main className="flex flex-col justify-center items-center height-90 py-9 bg-gray-100">
@@ -98,19 +90,7 @@ const FilteredResults = () => {
                         <div className="grid grid-cols-1 grid-rows-6 gap-4 w-full mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">
                             {           
                                 dataRandom.map(item => 
-                                    <Link key={item.id} to="#" className="flex sm:flex-col bg-gray-200 shadow-md border border-gray-300 rounded-sm focus:outline-none focus:ring-4 focus:ring-gray-600">  
-                                        <img className="w-1/3 object-fill sm:w-full sm:h-78 bg-contain md:w-60 md:h-60 rounded-tl-sm rounded-bl-sm sm:rounded-t sm:rounded-bl-none" src=
-                                            {item.poster_path === null || item.poster_path === undefined
-                                                ? DefaultImage  
-                                                : `https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
-                                            alt={`Imagen de portada de ${path === '/tv' ? item.name : item.title}`}
-                                        />  
-                                        <div className="w-2/3 sm:w-full p-3 ">
-                                            <h3 className="text-xl font-semibold text-gray-800">{path === '/tv' ? formatWords(item.name, 30) : formatWords(item.title, 30)}</h3>
-                                            <p className="text-sm font-normal text-gray-600">{path === '/tv' ? item.first_air_date : item.release_date}</p>
-                                            <p className="text-lg sm:hidden">{formatWords(item.overview, 80)}</p>
-                                        </div>  
-                                    </Link>
+                                    <FilteredItem item={item} path={path} showModal={showModal} setShowModal={setShowModal}/>
                                 )                           
                             }
                         </div>
@@ -138,6 +118,9 @@ const FilteredResults = () => {
                     </>
                 }
             </div>
+
+            <FilteredDetailItem showModal={showModal} setShowModal={setShowModal} />
+
         </main>
     )
 }

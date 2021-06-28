@@ -22,6 +22,8 @@ const Genres = () => {
         }
 
         fetchGenres(URL_BASE)
+
+        return sessionStorage.clear()
     }, [])
 
 
