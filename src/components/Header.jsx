@@ -7,7 +7,7 @@ const Header = () => {
             <div className="sm:container sm:flex sm:flex-row sm:justify-between sm:items-center max-w-screen-2xl mx-auto">
                 <figure className="mb-4 sm:mb-0">
                     <Link to="/">
-                        <img className="w-60 mx-auto" src={Logo} alt="Logo Lucmania" />
+                        <img className="w-48 mx-auto" src={Logo} alt="Logo Lucmania" />
                     </Link>
                 </figure>
                 <nav>

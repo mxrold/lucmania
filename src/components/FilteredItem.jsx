@@ -14,20 +14,37 @@ const FilteredItem = ({ item, path, showModal, setShowModal }) => {
             return value.length > leng ? value.slice(0, leng) + '...' : value
         }
     } 
-
+console.log('desde item', item)
     return (
-        <button key={item.id} onClick={handleDetailItem} className="flex sm:flex-col bg-gray-200 shadow-md border border-gray-300 rounded-sm focus:outline-none focus:ring-4 focus:ring-gray-600">  
-            <img className="w-1/3 object-fill sm:w-full sm:h-78 bg-contain md:w-60 md:h-60 rounded-tl-sm rounded-bl-sm sm:rounded-t sm:rounded-bl-none" src=
+        <button key={item.id} onClick={handleDetailItem} className="flex flex-row sm:flex-col bg-gray-200 shadow-md border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-gray-600">  
+            <img className="w-32 h-48 sm:w-full sm:h-72 md:w-48 md:h-auto md:max-h-48 2xl:max-h-72 object-fill bg-cover rounded-tl-md rounded-bl-md sm:rounded-t sm:rounded-bl-none" src=
                 {item.poster_path === null || item.poster_path === undefined
                     ? DefaultImage  
                     : `https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
                 alt={`Imagen de portada de ${path === '/tv' ? item.name : item.title}`}
             />  
-            <div className="w-2/3 sm:w-full p-3 ">
-                <h3 className="text-xl font-semibold text-gray-800">{path === '/tv' ? formatWords(item.name, 30) : formatWords(item.title, 30)}</h3>
-                <p className="text-sm font-normal text-gray-600">{path === '/tv' ? item.first_air_date : item.release_date}</p>
-                <p className="text-lg sm:hidden">{formatWords(item.overview, 80)}</p>
-            </div>  
+            <div className="flex flex-col justify-between  w-full h-full px-3 py-2 text-left">
+                <div>
+                <span className="block text-xl font-semibold text-gray-800">
+                    {path === '/tv' ? formatWords(item.name, 30) : formatWords(item.title, 30)}
+                </span>
+                {
+                    item === undefined && item.first_air_date === null || item.release_date === null
+                    ? null 
+                    : <span className="block mt-2 text-sm font-medium text-gray-700">
+                       {path === '/tv' ? item.first_air_date : item.release_date}
+                     </span>
+                }
+                </div>
+                {
+                item.vote_average * 10 > 75
+                ? <span className="block self-end top-full w-max my-2 px-2 py-0.5 text-xs font-medium bg-green-300 text-green-900 bg-opacity-80  border-2 border-green-400 rounded-full">
+                    Más populares
+                  </span>
+                : null
+            }
+            </div>
+            
         </button>
     )
 }

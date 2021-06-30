@@ -54,7 +54,6 @@ const FilteredResults = () => {
         const URL_RANDOM = `/discover${currentPath}`
         const URL_SECOND_PARAM = `&with_genres=${genre}&page=${NumberRandom(1, 500)}&include_adult=false`
         const responseData = await FetchData(URL_RANDOM, URL_SECOND_PARAM)
-
         randomItems(responseData.results)
         setLoading(false)
     }
@@ -68,7 +67,9 @@ const FilteredResults = () => {
             items.splice(getRandom, 1)
         }
 
-        setDataRandom(data)
+        if(data.length === 6) {
+            setDataRandom(data)
+        }
     }
     
     const handleNewResults = () => {
@@ -78,13 +79,13 @@ const FilteredResults = () => {
             fetchData(path)
         }
     }           
-
+   
     return (
         <main className="flex flex-col justify-center items-center height-90 py-9 bg-gray-100">
             <div className="w-11/12 sm:w-5/6 max-w-screen-2xl mx-auto">
                 <h2 className="mb-4 text-3xl font-semibold sm:text-4xl text-gray-800">{path === '/movie' ? 'Películas - ' : 'Series - '}{genre[1]}</h2>
                 {  
-                    loading === true 
+                    loading === true && dataRandom === undefined
                     ? <Loader numberItems={6}/>
                     : <>
                         <div className="grid grid-cols-1 grid-rows-6 gap-4 w-full mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1">

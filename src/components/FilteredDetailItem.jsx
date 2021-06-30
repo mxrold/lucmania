@@ -73,7 +73,7 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
   const formatVoteAverage = (votes) => {
     if(votes < 50) {
       return 'bg-red-400'
-    } else if(votes > 50 && votes < 70) {
+    } else if(votes > 50 && votes < 75) {
       return 'bg-yellow-400'
     } else {
       return 'bg-green-400'
@@ -82,8 +82,9 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
 
   const handleChange = () => {
     setShowModal(!showModal)
+    console.log(dataDetails)
   }
-console.log(dataDetails)
+
   return (
     <>
     {
@@ -91,21 +92,21 @@ console.log(dataDetails)
       ? null
       : <>
           <section className="flex justify-center items-center fixed inset-0 z-50">
-            <div className="w-11/12 h-4/5 sm:h-4/6 sm:w-5/6 max-w-screen-2xl mx-auto overflow-y-auto">
-              <div className="w-full p-3 sm:p-6 bg-gray-800 rounded-sm shadow-lg">
-                <div className="relative flex flex-col sm:flex-row w-full">
-                  <div className="absolute sm:-top-4 left-full">
-                    <button className="fixed -ml-6 sm:-ml-4 w-8 h-8 font-semibold bg-yellow-300 text-gray-800 bg-opacity-80 rounded-full" onClick={handleChange}>X</button>
+            <div className="w-11/12 h-4/5 md:h-4/6 md:w-5/6 max-w-screen-2xl mx-auto overflow-y-auto">
+              <div className="w-full p-3 md:p-6 bg-gray-800 rounded-sm shadow-lg">
+                <div className="relative flex flex-col md:flex-row w-full">
+                  <div className="absolute md:-top-4 left-full">
+                    <button className="fixed -ml-6 md:-ml-4 w-8 h-8 font-semibold bg-yellow-300 text-gray-800 bg-opacity-80 rounded-full" onClick={handleChange}>X</button>
                   </div>
-                  <div className="min-w-max mx-auto sm:mx-0 sm:mr-8">
-                    <img className="w-32 h-48 sm:w-full sm:h-72 mx-auto sm:mx-0 bg-contain object-fill rounded-md" src=
+                  <div className="min-w-max mx-auto md:mx-0 md:mr-8">
+                    <img className="w-32 h-48 md:w-full md:h-72 mx-auto md:mx-0 bg-contain object-fill rounded-md" src=
                     {dataDetails.poster_path === null || dataDetails.poster_path === undefined
                         ? DefaultImage
                         : `https://www.themoviedb.org/t/p/w220_and_h330_face/${dataDetails.poster_path}`}
                         alt={``}
                     />
                     {
-                      dataVideos === undefined && dataVideos.length === 0
+                      dataVideos === undefined || dataVideos.length === 0
                       ? null
                       : <div className="w-full mt-2 p-1 text-center" >
                           <a 
@@ -117,12 +118,12 @@ console.log(dataDetails)
                       </div>
                     }
                   </div>
-                  <div className="w-full sm:w-4/5 py-3">
+                  <div className="w-full md:w-4/5 py-3">
                     <div className="">
-                      <h2 className="text-3xl font-semibold sm:text-4xl text-gray-200">
+                      <h2 className="text-3xl font-semibold md:text-4xl text-gray-200">
                         {path === '/tv' ? dataDetails.name : dataDetails.title}
                       </h2>
-                      <div className="flex items-center mt-2 sm:mt-1 text-lg text-gray-300">
+                      <div className="flex items-center mt-2 md:mt-1 text-lg text-gray-300">
                         {
                           dataCertification.length === undefined || dataCertification.length === 0
                           ? null
@@ -137,7 +138,7 @@ console.log(dataDetails)
                           dataDetails === undefined || dataDetails.first_air_date === null || dataDetails.last_air_date === null
                           ? null
                           : <p>
-                              {path === '/tv' ? dataDetails.first_air_date.slice(0, 4) + ' - ' + dataDetails.last_air_date.slice(0, 4) : dataDetails.release_date.slice(0, 4)}
+                              {path === '/tv' ? dataDetails.first_air_date + ' - ' + dataDetails.last_air_date : dataDetails.release_date}
                             </p>  
                         }
                         {
@@ -154,7 +155,7 @@ console.log(dataDetails)
                       <div>
                         {
                         path === '/tv'
-                        ?  <div className="flex mt-3 sm:mt-2">
+                        ?  <div className="flex mt-3 md:mt-2">
                               <p className="mr-4 text-md text-blue-300 text-opacity-80">
                                 Temporadas: 
                                 <span className="text-md text-gray-300"> {dataDetails.number_of_seasons}</span>
@@ -167,9 +168,9 @@ console.log(dataDetails)
                         : null
                       }
                       { 
-                        dataDetails.genres === undefined && dataDetails.genres.length === 0
+                        dataDetails.genres === undefined 
                         ? null
-                        : <div className="mt-3 sm:mt-2">
+                        : <div className="mt-3 md:mt-2">
                             <p className="text-md text-blue-300 text-opacity-80">
                               Género: 
                               <span className="text-md text-gray-300"> {dataDetails.genres.map(item => item.name + ' - ')}</span>
@@ -179,7 +180,7 @@ console.log(dataDetails)
                       {
                         dataDetails.original_title  === '' || dataDetails.original_name === ''
                         ? null 
-                        : <div className="mt-3 sm:mt-2">
+                        : <div className="mt-3 md:mt-2">
                             <p className="text-md text-blue-300 text-opacity-80">
                               Título original: 
                               <span className="text-md text-gray-300"> {path === '/tv' ? dataDetails.original_name : dataDetails.original_title}</span>
@@ -187,9 +188,9 @@ console.log(dataDetails)
                           </div>
                       }
                       {
-                        dataDetails.spoken_languages.length === 0
+                        dataDetails.spoken_languages === undefined || dataDetails.spoken_languages.length === 0
                         ? null
-                        : <div className="mt-3 sm:mt-2">
+                        : <div className="mt-3 md:mt-2">
                             <p className="text-md text-blue-300 text-opacity-80">
                               Idioma original: 
                               <span className="text-md text-gray-300"> {dataDetails.spoken_languages[0].name}</span>
@@ -198,7 +199,7 @@ console.log(dataDetails)
                       }
                       {
                         path === '/tv' && dataDetails.created_by.length === undefined
-                        ? <div className="mt-3 sm:mt-2">
+                        ? <div className="mt-3 md:mt-2">
                             <p className="text-md text-blue-300 text-opacity-80">
                               Creado por: 
                               <span className="text-md text-gray-300"> {dataDetails.created_by.map(item => item.name + ' - ')}</span>
@@ -207,20 +208,20 @@ console.log(dataDetails)
                         : null
                       }
                       </div>
-                      <div className="flex justify-center sm:justify-start mt-5">
-                        <div className="flex w-2/4 sm:w-auto items-center justify-center">
-                          <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 mr-2 ${formatVoteAverage(dataDetails.vote_average * 10)} bg-opacity-90 rounded-full`}>
-                            <span className="text-md font-semibold text-gray-900">{dataDetails.vote_average * 10}</span>
-                            <span className="text-xs font-semibold text-gray-800">%</span>
+                      <div className="flex justify-center md:justify-start mt-5">
+                        <div className="flex w-2/4 md:w-auto items-center justify-center">
+                          <div className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 mr-2 font-semibold ${formatVoteAverage(dataDetails.vote_average * 10)} text-gray-900 bg-opacity-90 rounded-full`}>
+                            <span className="text-md">{dataDetails.vote_average * 10}</span>
+                            <span className="text-xs">%</span>
                           </div>
                           <div>
                             <p className="text-sm text-gray-400">Puntuaciones</p>
                             <p className="text-sm text-gray-400"> de  usuarios</p>
                           </div>
                         </div>
-                        <span className="w-px h-max mx-2 sm:mx-4 bg-gray-700"></span>
-                        <div className="flex items-center justify-center w-2/4 sm:w-auto">
-                          <button className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-full">
+                        <span className="w-px h-max mx-2 md:mx-4 bg-gray-700"></span>
+                        <div className="flex items-center justify-center w-2/4 md:w-auto">
+                          <button className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gray-700 rounded-full">
                             <img src={Heart} alt="" />
                           </button>
                         </div>
@@ -239,17 +240,17 @@ console.log(dataDetails)
                   </div>
                 </div>
                 {
-                  dataCast.cast === undefined
+                  dataCast.cast.length === 0
                   ? null
-                  : <div className="w-full sm:mx-4 my-8">
+                  : <div className="w-full md:mx-4 mt-8">
                       <h3 className="text-xl font-semibold text-gray-200">Elenco principal</h3>
                       <div className="flex mt-4 scroll-x">
                         {
                           dataCast.cast.slice(0, 12).map(item => (
-                            <article className="relative scroll-x-card mr-4 sm:mr-6 mb-4">
-                              <figure className="w-20 sm:w-24 h-max">
+                            <article className="relative scroll-x-card mr-4 md:mr-6 mb-4">
+                              <figure className="w-20 md:w-24 h-max">
                                 <img
-                                className="w-20 h-32 sm:w-24 sm:h-36 bg-contain rounded-md"
+                                className="w-20 h-32 md:w-24 md:h-36 bg-contain rounded-md"
                                 src={item.profile_path === null
                                   ? DefaultCastImage
                                   : `https://www.themoviedb.org/t/p/w220_and_h330_face/${item.profile_path}`}
@@ -264,7 +265,7 @@ console.log(dataDetails)
                       </div>
                     </div>
                 }
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center mt-8">
                   <button
                     className="py-1 px-6 font-semibold bg-yellow-300 text-gray-800 bg-opacity-80 rounded-md"
                     type="button"
