@@ -32,7 +32,7 @@ const Genres = () => {
     const handleRouteBtn = () => history.push(`${path}/results`)
 
     return (
-        <main className="flex flex-col justify-center items-center height-90 py-9 bg-gray-100">
+        <main className="flex flex-col justify-center items-center py-9 bg-gray-100">
             {
                 genres.length === 0
                 ? <Loader numberItems={16} />
@@ -42,7 +42,7 @@ const Genres = () => {
                         <p className="text-lg sm:text-xl text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
                     </div>
 
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full mx-auto sm:grid-cols-3 sm:grid-rows-3 md:grid-cols-4 md:grid-rows-4">
+                    <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full mx-auto sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-4 lg:grid-rows-4">
                         {
                             genres.map(item => 
                                 <GenresItem item={item} />

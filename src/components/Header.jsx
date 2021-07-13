@@ -3,19 +3,35 @@ import Logo from '../assets/static/logo.svg'
 
 const Header = () => {
     return (
-        <header className="md:height-10 p-3 bg-yellow-300 border-b-2 border-gray-900">
+        <header className="h-max p-3 bg-yellow-300 border-b-2 border-gray-900">
             <div className="sm:container sm:flex sm:flex-row sm:justify-between sm:items-center max-w-screen-2xl mx-auto">
                 <figure className="mb-4 sm:mb-0">
                     <Link to="/">
                         <img className="w-48 mx-auto" src={Logo} alt="Logo Lucmania" />
                     </Link>
                 </figure>
-                <nav>
-                    <ul>
-                        <li className="w-8/12 mx-auto sm:w-max text-center">
+                <nav className="max-w-xs mx-auto sm:mx-0 sm:w-2/4">
+                    <ul className="flex items-center justify-around sm:justify-between text-base sm:text-lg font-medium tracking-wide">
+                        <li>
+                            <a
+                                className="text-gray-700 hover:text-gray-900"
+                                href="/movie"    
+                            >
+                            Películas
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="text-gray-700 hover:text-gray-900"
+                                href="/tv"    
+                            >
+                            Series
+                            </a>
+                        </li>
+                        <li>
                             <Link 
-                                className="w-max px-3 py-1 text-base sm:text-lg font-medium tracking-wide text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-gray-600" 
-                                to="#"
+                                className="text-blue-500 hover:text-blue-700" 
+                                to="/favorites"
                             >
                                 Favoritos
                             </Link>

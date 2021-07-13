@@ -23,8 +23,8 @@ const Loader = ({ numberItems }) => {
          : 'grid grid-cols-1 grid-rows-6 gap-4 w-full max-w-screen-2xl mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1'}`}>
             {
                 items.map(item => (
-                    <div class="w-42 h-max border-4 bg-gray-200 shadow rounded-sm">
-                    <div class="animate-pulse">
+                    <div className="w-42 h-max border-4 bg-gray-200 shadow rounded-sm">
+                    <div className="animate-pulse">
                         <div className={`w-full ${numberItems === 16 ? 'h-12 mb-0' : 'h-60 mb-4'}  bg-gray-300 rounded-md`}></div>
                         <div className={`${numberItems === 16 ? 'hidden' : ''} w-full mb-2 h-8 bg-gray-300 rounded-md`}></div>
                         <div className={`${numberItems === 16 ? 'hidden' : ''} w-1/3 h-4 bg-gray-300 rounded-md`}></div>

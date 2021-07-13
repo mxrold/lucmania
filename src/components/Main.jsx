@@ -67,14 +67,14 @@ const Main = () => {
             }
         ]
 
-        const getRandom = images[NumberRandom(1, 12)]
+        const getRandom = images[NumberRandom(0, images.length)]
         const URL = `https://i.ibb.co/${getRandom.link}.png`
         setImage(URL)
     }
 
     return (
         <>
-        <main className="flex justify-center items-center h-5/6 sm:p-3 bg-yellow-200">
+        <main className="flex justify-center items-center h-full min-h-screen sm:p-3 bg-yellow-200">
             <div className="flex flex-col items-center lg:flex-row md:justify-between lg:justify-around w-11/12 md:w-5/6 max-w-screen-2xl">
                 <div className="relative top-2 right-2 w-11/12 lg:w-5/12 h-max my-12 lg:my-4 bg-gray-700 rounded">
                     <div className="relative bottom-2 left-2 p-3 sm:p-4 md:w-full md:text-left bg-gray-300 border-2 border-gray-700 rounded">
@@ -98,7 +98,7 @@ const Main = () => {
                     {
                         image === ''
                         ? <p className="text-center">...Cargando imagen de fondo</p>
-                        : <img className="w-64 sm:w-78 md:w-96 lg:w-full mx-auto -mb-0.5" src={image} alt="Imagen de storyset.com" title="Imagen de storyset.com" />
+                        : <img className="w-64 sm:w-78 md:w-96 lg:w-full mx-auto" src={image} alt="Imagen de storyset.com" title="Imagen de storyset.com" />
                     }
                 </figure>
             </div>
