@@ -6,6 +6,7 @@ import FilteredItem from './FilteredItem'
 import FilteredDetailItem from './FilteredDetailItem'
 import Button from './global/Button'
 import Loader from './global/Loader'
+import MetaHead from './global/MetaHead'
 
 const FilteredResults = () => {
     const [ genre, setGenre ] = useState([])
@@ -80,10 +81,20 @@ const FilteredResults = () => {
         }
     }           
 
+    const nameFormatPath = () => path === '/movie' ? 'Películas' : 'Series'
+    
+
     return (
+        <>
+        <MetaHead 
+            title={`${nameFormatPath()} - Resultados`}
+            description="¿Te gustó algo y quieres conocer más? Ingresa a cada película o serie para ver su información, puntuaciones de usuarios, resumen, elenco principal y mucho más."
+            url={`https://lucmania.co${path}/results`}
+        />
+
         <main className="flex flex-col justify-center items-center md:h-screen py-9 bg-gray-100">
             <div className="w-11/12 sm:w-5/6 max-w-screen-2xl mx-auto">
-                <h2 className="mb-4 text-3xl font-semibold sm:text-4xl text-gray-800">{path === '/movie' ? 'Películas - ' : 'Series - '}{genre[1]}</h2>
+                <h2 className="mb-4 text-3xl font-semibold sm:text-4xl text-gray-800">{`${nameFormatPath()} - `}{genre[1]}</h2>
                 {  
                     loading === true || dataRandom === undefined
                     ? <Loader numberItems={6}/>
@@ -109,6 +120,7 @@ const FilteredResults = () => {
             <FilteredDetailItem showModal={showModal} setShowModal={setShowModal} />
 
         </main>
+        </>
     )
 }
 

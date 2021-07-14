@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import Footer from './Footer'
 import Button from './global/Button'
 import NumberRandom from '../utils/NumberRandom'
+import MetaHead from './global/MetaHead'
 
 const Main = () => {
     const [ image, setImage ] = useState('')
@@ -74,6 +75,12 @@ const Main = () => {
 
     return (
         <>
+        <MetaHead 
+            title="Home"
+            description="Descubre películas y series sin buscar por ti mismo."
+            url="https://lucmania.co"
+        />
+
         <main className="h-full min-h-screen bg-gray-100">
             <div className="mx-auto py-24 text-center">
                 <div className="px-3 md:px-6 max-w-screen-xl mx-auto">
@@ -108,7 +115,7 @@ const Main = () => {
                         <div className="relative top-2 right-2 max-w-xs h-max mx-auto mt-12 lg:my-4 bg-gray-700 rounded">
                             <div className="relative bottom-2 left-2 p-3 sm:p-4 md:w-full md:text-left bg-gray-300 border-2 border-gray-700 rounded">
                                 <h3 className="text-xl font-medium sm:text-2xl  text-gray-700">Accede a los detalles</h3>
-                                <p className="text-lg font-normal sm:text-xl text-gray-700">¿Te gustó algo y quieres conocer más? Ingresa a cada uno para ver su información, puntuaciones de usuarios, resumen, elenco principal y mucho más.</p>
+                                <p className="text-lg font-normal sm:text-xl text-gray-700">¿Te gustó algo y quieres conocer más? Ingresa a cada película o serie para ver su información, puntuaciones de usuarios, resumen, elenco principal y mucho más.</p>
                             </div>
                         </div>
                         <div className="relative top-2 right-2 max-w-xs mx-auto h-max mt-12 lg:my-4 bg-gray-700 rounded">
