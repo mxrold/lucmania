@@ -119,6 +119,16 @@ const Main = () => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <span className="block w-24 h-0.5 mx-auto mb-3 bg-blue-400"></span>
+                    <h3 className="text-xl font-medium sm:text-2xl  text-gray-800">Ayudame a seguir mejorando la plataforma</h3>
+                    <div className="flex flex-col justify-center items-center sm:flex-row mt-6">
+                        <p className="max-w-xs mb-4 sm:mr-4 sm:mb-0 text-lg font-normal text-gray-700">Puedes apoyarme donandome un Cafecito mediante el siguiente enlace</p>
+                        <a href='https://cafecito.app/mxrold' rel='noopener' target='_blank'>
+                            <img srcset='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_6.png' alt='Invitame un café en cafecito.app' />
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
         
