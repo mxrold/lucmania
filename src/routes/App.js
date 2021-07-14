@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Layout from '../components/Layout'
-import Main from '../components/Main'
+import Main from '../containers/Main'
 import Favorites from '../components/Favorites'
 import Genres from '../components/Genres'
 import FilteredResults from '../components/FilteredResults'

@@ -48,9 +48,7 @@ const Favorites = () => {
             : <>
                 <div className="flex justify-between items-center border-b-2 border-gray-200">
                   <h2 className="text-3xl font-semibold sm:text-4xl text-gray-800">Favoritos</h2>
-                  <div>
-                    <p className="text-lg text-gray-700">{`${favoritesDataMovie.length + favoritesDataTv.length} / ${LIMIT_FAVORITES}`}</p>
-                  </div>
+                  <p className="text-lg text-gray-700">{`${favoritesDataMovie.length + favoritesDataTv.length} / ${LIMIT_FAVORITES}`}</p>
                 </div>
 
                 {
