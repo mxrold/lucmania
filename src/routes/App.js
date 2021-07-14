@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Layout from '../components/Layout'
 import Main from '../containers/Main'
 import Genres from '../containers/Genres'
-import Favorites from '../components/Favorites'
+import Favorites from '../containers/Favorites'
 import FilteredResults from '../components/FilteredResults'
 
 const App = () => {

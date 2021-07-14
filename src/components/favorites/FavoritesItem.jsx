@@ -1,5 +1,5 @@
-import FormatString from '../utils/FormatStrings'
-import DefaultImage from '../assets/static/default-poster-image.jpg'
+import FormatString from '../../utils/FormatStrings'
+import DefaultImage from '../../assets/static/default-poster-image.jpg'
 
 const FavoritesItem = ({ item, path, showModal, setShowModal }) => {
 
@@ -15,7 +15,7 @@ const FavoritesItem = ({ item, path, showModal, setShowModal }) => {
                 item.poster_path === undefined 
                 ? <p>...Cargando</p>
                 : <article className="scroll-x-card w-32 h-48 mt-2 mb-16 mr-2 ml-2 md:mr-6 shadow-md">
-                    <button key={item.id} onClick={handleDetailItem} className="w-32 text-base font-semibold text-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-600 rounded-md">  
+                    <button onClick={handleDetailItem} className="w-32 text-base font-semibold text-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-600 rounded-md">  
                         <figure className="relative">
                             <img className="w-32 h-max rounded-md" src=
                                 {item.poster_path === null || item.poster_path === undefined
