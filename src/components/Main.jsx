@@ -74,33 +74,51 @@ const Main = () => {
 
     return (
         <>
-        <main className="flex justify-center items-center h-full min-h-screen sm:p-3 bg-yellow-200">
-            <div className="flex flex-col items-center lg:flex-row md:justify-between lg:justify-around w-11/12 md:w-5/6 max-w-screen-2xl">
-                <div className="relative top-2 right-2 w-11/12 lg:w-5/12 h-max my-12 lg:my-4 bg-gray-700 rounded">
-                    <div className="relative bottom-2 left-2 p-3 sm:p-4 md:w-full md:text-left bg-gray-300 border-2 border-gray-700 rounded">
-                        <h1 className="text-4xl font-bold sm:text-6xl text-gray-900">Lorem ipsum dolor sit amet</h1>
-                        <h3 className="mb-6 text-lg font-normal sm:text-2xl  text-gray-800">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</h3>
-                        <div className="flex flex-col sm:flex-row sm:justify-around sm:mb-0 w-full ">
-                            {
-                                dataButton.map(data => 
-                                    <Button 
-                                        text={data.title} 
-                                        key={data.key} 
-                                        onClick={() => handleGetGenders(data.key)}
-                                        width={'w-full sm:w-5/12'}
-                                    />
-                                )
-                            }
+        <main className="h-full min-h-screen bg-gray-100">
+            <div className="mx-auto py-24 text-center">
+                <div className="px-3 md:px-6 max-w-screen-xl mx-auto">
+                    <h1 className="text-4xl font-semibold sm:text-5xl text-gray-800">Descubre contenido aleatorio sin buscar por ti mismo</h1>
+                    <p className="mt-6 text-lg font-normal sm:text-xl text-gray-700">¿No te decides sobre qué película o serie mirar? Escoge un género, encuentra lo que más te guste, mira sus detalles y guardalo en favoritos para no perderlo. </p>
+                    <div className="flex flex-col sm:flex-row sm:justify-around sm:w-3/4 lg:w-2/4 mx-auto mt-12">
+                        {
+                            dataButton.map(data => 
+                                <Button 
+                                    text={data.title} 
+                                    key={data.key} 
+                                    onClick={() => handleGetGenders(data.key)}
+                                    width={'w-full sm:w-5/12  sm:max-w-xs'}
+                                />
+                            )
+                        }
+                    </div>
+                </div>
+                <div className="w-full mt-24 mb-6">
+                    <span className="block w-24 h-0.5 mx-auto mb-3 bg-blue-400"></span>
+                    <h2 className="text-3xl font-medium sm:text-4xl text-gray-800">¿Qué puedes encontrar en Lucmania?</h2>
+                </div>
+                <div className="flex flex-col lg:flex-row lg:justify-center mb-16 px-6 py-6 sm:px-16 sm:py-9 bg-blue-300 ">
+                    <figure className="self-center lg:w-2/3 h-full max-w-2xl mx-auto">
+                        {
+                            image === ''
+                            ? null
+                            : <img className="w-64 sm:w-78 md:w-96 mx-auto" src={image} alt="Imagen de storyset.com" title="Imagen de storyset.com" />
+                        }
+                    </figure>
+                    <div className="lg:w-1/3 max-w-2xl mx-auto">
+                        <div className="relative top-2 right-2 max-w-xs h-max mx-auto mt-12 lg:my-4 bg-gray-700 rounded">
+                            <div className="relative bottom-2 left-2 p-3 sm:p-4 md:w-full md:text-left bg-gray-300 border-2 border-gray-700 rounded">
+                                <h3 className="text-xl font-medium sm:text-2xl  text-gray-700">Accede a los detalles</h3>
+                                <p className="text-lg font-normal sm:text-xl text-gray-700">¿Te gustó algo y quieres conocer más? Ingresa a cada uno para ver su información, puntuaciones de usuarios, resumen, elenco principal y mucho más.</p>
+                            </div>
+                        </div>
+                        <div className="relative top-2 right-2 max-w-xs mx-auto h-max mt-12 lg:my-4 bg-gray-700 rounded">
+                            <div className="relative bottom-2 left-2 p-3 sm:p-4 md:w-full md:text-left bg-gray-300 border-2 border-gray-700 rounded">
+                                <h3 className="text-xl font-medium sm:text-2xl  text-gray-700">Agrega a favoritos</h3>
+                                <p className="text-lg font-normal text-gray-700">En cada búsqueda guarda todo el contenido que te guste para nunca perderte lo que quieras ver luego.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <figure className="lg:w-5/12">
-                    {
-                        image === ''
-                        ? <p className="text-center">...Cargando imagen de fondo</p>
-                        : <img className="w-64 sm:w-78 md:w-96 lg:w-full mx-auto" src={image} alt="Imagen de storyset.com" title="Imagen de storyset.com" />
-                    }
-                </figure>
             </div>
         </main>
         

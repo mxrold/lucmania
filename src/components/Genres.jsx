@@ -39,7 +39,7 @@ const Genres = () => {
                 : <div className="w-11/12 sm:w-5/6 max-w-screen-2xl">
                     <div className="w-full mx-auto mb-4">
                         <h2 className="text-3xl font-semibold sm:text-4xl text-gray-800">Géneros de {nameFormatPath()}</h2>
-                        <p className="text-lg sm:text-xl text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                        <p className="text-lg sm:text-xl text-gray-700">Si no eliges ningún género, la búsqueda se hará por todas las categorías.</p>
                     </div>
 
                     <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full mx-auto sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-4 lg:grid-rows-4">
