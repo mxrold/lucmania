@@ -92,7 +92,7 @@ const FilteredResults = () => {
         url={`https://lucmania.co${path}/results`}
       />
 
-      <main className='flex flex-col justify-center items-center md:h-screen py-9 bg-gray-100'>
+      <main className='flex flex-col justify-center items-center lg:h-screen py-9 bg-gray-100'>
         <div className='w-11/12 sm:w-5/6 max-w-screen-2xl mx-auto'>
           <Titleh2 title={`${nameFormatPath()} - ${genre[1]}`} />
           {
