@@ -28,7 +28,7 @@ const ModalSecondary = (props) => {
                             <ButtonSecondary 
                                 text={'Cerrar'} 
                                 handleChange={handleChange} 
-                                background={'bg-transparent'} 
+                                background={'bg-gray-200'} 
                                 textColor={'text-gray-800'}
                                 bgHover={'hover:bg-gray-300'} 
                             />
