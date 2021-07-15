@@ -78,40 +78,43 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
   return (
     <>
       {
-      showModal === false
+        showModal === false
         ? null
         : <>
-            <section className='flex justify-center items-center fixed inset-0 z-10'>
-              <div className='w-11/12 h-5/6 md:h-3/4 md:w-5/6 max-w-screen-2xl mx-auto overflow-y-auto'>
-                <div className='w-full p-3 md:p-6 bg-gray-800 rounded-sm shadow-lg'>
-                  <div className='relative flex flex-col md:flex-row w-full'>
+          {
+            dataDetails === undefined 
+            ? null
+            :  <section className='flex justify-center items-center fixed inset-0 z-10'>
+                <div className='w-11/12 h-5/6 md:h-3/4 md:w-5/6 max-w-screen-2xl mx-auto overflow-y-auto'>
+                  <div className='w-full p-3 md:p-6 bg-gray-800 rounded-sm shadow-lg'>
+                    <div className='relative flex flex-col md:flex-row w-full'>
 
-                    <DetailTopButton handleChange={handleChange} />
+                      <DetailTopButton handleChange={handleChange} />
 
-                    <div className='min-w-max mx-auto md:mx-0 md:mr-8'>
-                      <DetailPoster poster={dataDetails.poster_path} title={path === '/tv' ? dataDetails.name : dataDetails.title} />
-                      <DetailTrailerVideo video={dataVideos} />
-                    </div>
-
-                    <div className='w-full md:w-4/5 py-3'>
-                      <DetailInformation dataDetails={dataDetails} path={path} dataCertification={dataCertification} />
-                      <div className='flex justify-center md:justify-start mt-5'>
-                        <DetailVotes votes={dataDetails.vote_average * 10} />
-                        <span className='w-px h-max mx-2 md:mx-4 bg-gray-700' />
-                        <DetailAddFavorite details={dataDetails} path={path} />
+                      <div className='min-w-max mx-auto md:mx-0 md:mr-8'>
+                        <DetailPoster poster={dataDetails.poster_path} title={path === '/tv' ? dataDetails.name : dataDetails.title} />
+                        <DetailTrailerVideo video={dataVideos} />
                       </div>
-                      <DetailOverview overview={dataDetails.overview} />
+
+                      <div className='w-full md:w-4/5 py-3'>
+                        <DetailInformation dataDetails={dataDetails} path={path} dataCertification={dataCertification} />
+                        <div className='flex justify-center md:justify-start mt-5'>
+                          <DetailVotes votes={dataDetails.vote_average * 10} />
+                          <span className='w-px h-max mx-2 md:mx-4 bg-gray-700' />
+                          <DetailAddFavorite details={dataDetails} path={path} />
+                        </div>
+                        <DetailOverview overview={dataDetails.overview} />
+                      </div>
                     </div>
+
+                    <DetailCast cast={dataCast} />
+
+                    <DetailBottomButton handleChange={handleChange} />
                   </div>
-
-                  <DetailCast cast={dataCast} />
-
-                  <DetailBottomButton handleChange={handleChange} />
                 </div>
-              </div>
-            </section>
-          
-            < div className='opacity-25 fixed inset-0 z-5 bg-black' />
+              </section>
+          }
+          < div className='opacity-25 fixed inset-0 z-5 bg-black' />
         </>
       }
     </>
