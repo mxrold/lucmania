@@ -14,7 +14,7 @@ const GenresButtons = ({ path, formatPath }) => {
                 width={'w-full sm:w-60 md:w-80'}
             />
             <a 
-                className="my-4 text-lg text-gray-700 border-t-2 border-gray-400 hover:text-gray-900" 
+                className="my-4 text-lg font-medium text-gray-700 border-t-2 border-blue-400 hover:text-blue-700" 
                 href={path === '/tv' ? '/movie' : '/tv'}
             >
                 Buscar por {path === '/tv' ? 'películas' : 'series'}

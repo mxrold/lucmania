@@ -22,7 +22,7 @@ const DetailInformation = ({ dataDetails, path, dataCertification }) => {
             </h2>
             <div className="flex items-center mt-2 md:mt-1 text-lg text-gray-300">
                 {
-                    dataCertification.length === 0 || dataCertification === undefined
+                    Object.keys(dataCertification) === undefined || dataCertification.release_dates === undefined
                     ? null
                     : <>
                         <p className="px-0.5 border-2 border-gray-700 rounded-sm">

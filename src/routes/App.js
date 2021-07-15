@@ -4,6 +4,19 @@ import Main from '../containers/Main'
 import Genres from '../containers/Genres'
 import Favorites from '../containers/Favorites'
 import FilteredResults from '../components/FilteredResults'
+import EmptyComponent from '../components/global/EmptyComponent'
+
+const NotFound = () => {
+  return (
+    <div className="h-screen">
+      <EmptyComponent 
+        title={'Hmmm!'}
+        text={'No encontramos lo que buscabas 🤔'}
+        pathText={'Volver al inicio'}
+      />
+    </div>
+  )
+}
 
 const App = () => {
   return (
@@ -15,7 +28,7 @@ const App = () => {
             <Route exact path="/favorites" component={Favorites} />
             <Route exact path="/(tv|movie)" component={Genres} />
             <Route exact path="/(tv|movie)/results" component={FilteredResults} />
-            <Route path="*" component={Main} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </Layout>
       </BrowserRouter>

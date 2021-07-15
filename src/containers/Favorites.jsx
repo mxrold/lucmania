@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import MetaHead from '../components/global/MetaHead'
-import FavoritesEmptyState from '../components/FavoritesEmptyState'
+import EmptyComponent from '../components/global/EmptyComponent'
 import FilteredDetailItem from '../components/FilteredDetailItem'
 import FavoritesInformationText from '../components/favorites/FavoritesInformationText'
 import FavoritesList from '../components/favorites/FavoritesList'
@@ -42,7 +42,11 @@ const Favorites = () => {
         <div className="w-11/12 sm:w-5/6 max-w-screen-2xl h-screen  mx-auto">
           {
             localStorage.length === 0
-            ? <FavoritesEmptyState />
+            ? <EmptyComponent 
+                title={'No tienes ningún favorito agregado.'}   
+                text={'¡Ve a elegir las películas y series que más te gusten!'}
+                pathText={'Volver al inicio'}
+              />
             : <>
                 <FavoritesInformationText 
                   lengthMovie={favoritesDataMovie.length} 
