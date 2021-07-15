@@ -96,19 +96,19 @@ const FilteredResults = () => {
         <div className='w-11/12 sm:w-5/6 max-w-screen-2xl mx-auto'>
           <Titleh2 title={`${nameFormatPath()} - ${genre[1]}`} />
           {
-                        loading === true || dataRandom === undefined
-                          ? <Loader numberItems={6} />
-                          : <>
-                            <FilteredList
-                              dataRandom={dataRandom}
-                              path={path}
-                              showModal={showModal}
-                              setShowModal={setShowModal}
-                            />
+            loading === true || dataRandom === undefined
+              ? <Loader numberItems={6} />
+              : <>
+                <FilteredList
+                  dataRandom={dataRandom}
+                  path={path}
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                />
 
-                            <FilteredButton handleNewResults={handleNewResults} genre={genre} />
-                            </>
-                    }
+                <FilteredButton handleNewResults={handleNewResults} genre={genre} />
+              </>
+          }
         </div>
 
         <FilteredDetailItem showModal={showModal} setShowModal={setShowModal} />

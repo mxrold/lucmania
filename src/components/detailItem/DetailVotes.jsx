@@ -2,7 +2,7 @@ const DetailVotes = ({ votes }) => {
   const formatVoteAverage = (votes) => {
     if (votes < 50) {
       return 'bg-red-400'
-    } else if (votes > 50 && votes < 75) {
+    } else if (votes >= 50 && votes < 75) {
       return 'bg-yellow-400'
     } else {
       return 'bg-green-400'

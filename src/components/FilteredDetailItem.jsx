@@ -81,10 +81,7 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
       showModal === false
         ? null
         : <>
-          {
-          dataDetails === undefined
-            ? <p>...Cargando detalles</p>
-            : <section className='flex justify-center items-center fixed inset-0 z-50'>
+            <section className='flex justify-center items-center fixed inset-0 z-10'>
               <div className='w-11/12 h-5/6 md:h-3/4 md:w-5/6 max-w-screen-2xl mx-auto overflow-y-auto'>
                 <div className='w-full p-3 md:p-6 bg-gray-800 rounded-sm shadow-lg'>
                   <div className='relative flex flex-col md:flex-row w-full'>
@@ -113,9 +110,9 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
                 </div>
               </div>
             </section>
-        }
-          <div className='opacity-25 fixed inset-0 z-40 bg-black' />
-          </>
+          
+            < div className='opacity-25 fixed inset-0 z-5 bg-black' />
+        </>
       }
     </>
   )
