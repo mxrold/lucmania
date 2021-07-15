@@ -7,22 +7,22 @@ const DetailAddFavorite = ({ details, path }) => {
 
   const handleFavorite = () => {
     VerifyIconFavorite()
-    if(localStorage.getItem(key)) {
+    if (localStorage.getItem(key)) {
       removeFavorite(key)
     } else {
       addFavorite(key)
     }
   }
-    
+
   const addFavorite = (key) => {
-    if(localStorage.length >= LIMIT_FAVORITES) {
+    if (localStorage.length >= LIMIT_FAVORITES) {
       alert(`Completaste el almacenamiento de ${LIMIT_FAVORITES} favoritos`)
     } else {
       const date = new Date()
       const value = {
-        path:path, 
+        path: path,
         date: date,
-        id: details.id, 
+        id: details.id,
         name: details.name,
         title: details.title,
         poster_path: details.poster_path,
@@ -35,13 +35,13 @@ const DetailAddFavorite = ({ details, path }) => {
 
   const removeFavorite = (key) => {
     const removeMessage = confirm('¿Quieres eliminar este favorito?')
-    if(removeMessage) {
+    if (removeMessage) {
       localStorage.removeItem(key)
     }
   }
 
   const VerifyIconFavorite = () => {
-    if(localStorage.getItem(key)) {
+    if (localStorage.getItem(key)) {
       return Heart
     } else {
       return HeartOutline
@@ -49,11 +49,11 @@ const DetailAddFavorite = ({ details, path }) => {
   }
 
   return (
-      <div className="flex items-center justify-center w-2/4 md:w-auto">
-          <button onClick={handleFavorite} className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gray-700 rounded-full focus:outline-none">
-              <img src={VerifyIconFavorite()} alt="Agregar a favoritos" title="Agregar a favoritos" />
-          </button>
-      </div>
+    <div className='flex items-center justify-center w-2/4 md:w-auto'>
+      <button onClick={handleFavorite} className='flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gray-700 rounded-full focus:outline-none'>
+        <img src={VerifyIconFavorite()} alt='Agregar a favoritos' title='Agregar a favoritos' />
+      </button>
+    </div>
   )
 }
 
