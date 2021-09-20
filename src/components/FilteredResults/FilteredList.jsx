@@ -1,3 +1,4 @@
+import React from 'react'
 import FilteredItem from './FilteredItem'
 
 const FilteredList = ({ dataRandom, path, showModal, setShowModal }) => {

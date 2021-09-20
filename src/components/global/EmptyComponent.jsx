@@ -1,3 +1,4 @@
+import React from 'react'
 import TextParagraph from './TextParagraph'
 import Titleh2 from './Titleh2'
 import LinkButton from './LinkButton'

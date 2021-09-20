@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Loader = ({ numberItems }) => {
   const [items, setItems] = useState([])
@@ -17,7 +17,7 @@ const Loader = ({ numberItems }) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <div className={`${numberItems === 16
             ? 'grid grid-cols-2 grid-rows-2 gap-4 w-5/6 max-w-screen-2xl mx-auto sm:grid-cols-3 sm:grid-rows-3 md:grid-cols-4 md:grid-rows-4'
          : 'grid grid-cols-1 grid-rows-6 gap-4 w-full max-w-screen-2xl mx-auto sm:grid-cols-2 sm:grid-rows-3 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 lg:grid-rows-1'}`}
@@ -37,7 +37,7 @@ const Loader = ({ numberItems }) => {
       <div className='animate-pulse w-5/6 max-w-screen-xl mx-auto mt-4'>
         <div className='w-full sm:w-60 md:w-80 h-10 max-content mx-auto mb-2 sm:mb-0 py-1.5 px-3 bg-gray-300 rounded-md' />
       </div>
-    </>
+    </React.Fragment>
   )
 }
 

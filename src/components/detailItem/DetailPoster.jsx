@@ -1,3 +1,4 @@
+import React from 'react'
 import DefaultImage from '../../assets/static/default-poster-image.jpg'
 
 const DetailPoster = ({ poster, title }) => {

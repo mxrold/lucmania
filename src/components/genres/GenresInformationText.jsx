@@ -1,3 +1,4 @@
+import React from 'react'
 import Titleh2 from '../global/Titleh2'
 import TextParagraph from '../global/TextParagraph'
 

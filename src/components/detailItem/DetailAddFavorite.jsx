@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import ModalSecondary from '../global/ModalSecondary'
 import Heart from '../../assets/static/heart-fill.png'
 import HeartOutline from '../../assets/static/heart-outline.png'
@@ -71,7 +71,7 @@ const DetailAddFavorite = ({ details, path }) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <div className='flex items-center justify-center w-2/4 md:w-auto'>
         <button onClick={handleFavorite} className='flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-gray-700 rounded-full focus:outline-none'>
           <img src={VerifyIconFavorite()} alt='Agregar a favoritos' title='Agregar a favoritos' />
@@ -86,7 +86,7 @@ const DetailAddFavorite = ({ details, path }) => {
         setShowModal={setShowModal} 
         removeFavorite={removeFavorite}
       />
-    </>
+    </React.Fragment>
   )
 }
 

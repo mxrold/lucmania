@@ -1,3 +1,5 @@
+import React from 'react'
+
 const DetailTopButton = ({ handleChange }) => {
   return (
     <div className='absolute md:-top-4 left-full'>

@@ -1,6 +1,8 @@
+import React from 'react'
+
 const DetailOverview = ({ overview }) => {
   return (
-    <>
+    <React.Fragment>
       {
         overview === ''
           ? null
@@ -11,7 +13,7 @@ const DetailOverview = ({ overview }) => {
             </p>
           </div>
       }
-    </>
+    </React.Fragment>
   )
 }
 

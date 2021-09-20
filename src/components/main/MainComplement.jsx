@@ -1,3 +1,4 @@
+import React from 'react'
 import MainImage from './MainImage'
 import MainDescriptions from './MainDescriptions'
 

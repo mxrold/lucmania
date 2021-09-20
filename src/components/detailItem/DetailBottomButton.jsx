@@ -1,3 +1,4 @@
+import React from 'react'
 import ButtonSecondary from '../global/ButtonSecondary'
 
 const DetailBottomButton = ({ handleChange }) => {

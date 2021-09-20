@@ -1,3 +1,4 @@
+import React from 'react'
 import FormatStrings from '../../utils/FormatStrings'
 import Titleh2 from '../global/Titleh2'
 
@@ -17,18 +18,18 @@ const DetailInformation = ({ dataDetails, path, dataCertification }) => {
   const iteratorArray = data => data.map(item => item.name + ' - ')
 
   return (
-    <>
+    <React.Fragment>
       <Titleh2 title={path === '/tv' ? dataDetails.name : dataDetails.title} background={'text-gray-200'} />
       <div className='flex items-center mt-2 md:mt-1 text-lg text-gray-300'>
         {
           Object.keys(dataCertification) === undefined || dataCertification.release_dates === undefined
             ? null
-            : <>
+            : <React.Fragment>
               <p className='px-0.5 border-2 border-gray-700 rounded-sm'>
                 {path === '/tv' ? dataCertification.rating : dataCertification.release_dates[0].certification}
               </p>
               <span className='w-1 h-1 mx-4 bg-gray-700 rounded-full' />
-            </>
+            </React.Fragment>
         }
         {
           dataDetails === undefined || dataDetails.first_air_date === null || dataDetails.last_air_date === null
@@ -42,12 +43,12 @@ const DetailInformation = ({ dataDetails, path, dataCertification }) => {
         {
           dataDetails.runtime === null || path === '/tv'
             ? null
-            : <>
+            : <React.Fragment>
               <span className='w-1 h-1 mx-4 bg-gray-600 rounded-full' />
               <p>
                 {formatRuntime(dataDetails.runtime)}
               </p>
-            </>
+            </React.Fragment>
         }
       </div>
       <div>
@@ -106,7 +107,7 @@ const DetailInformation = ({ dataDetails, path, dataCertification }) => {
             : null
         }
       </div>
-    </>
+    </React.Fragment>
   )
 }
 

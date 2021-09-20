@@ -1,3 +1,5 @@
+
+import React from 'react'
 import Titleh3 from '../global/Titleh3'    
 import TextParagraph from '../global/TextParagraph'    
 import ButtonSecondary from './ButtonSecondary'
@@ -10,11 +12,11 @@ const ModalSecondary = (props) => {
     }
 
     return (
-    <>
+    <React.Fragment>
     {
         showModal === false
         ? null
-        :   <>
+        :   <React.Fragment>
             <div className="flex justify-center items-center fixed inset-0 z-20">
                 <div className="w-10/12 md:w-max h-max mx-auto max-w-sm">
                     <div className="flex flex-col w-full p-3 md:p-6 bg-gray-100 rounded-md">
@@ -50,9 +52,9 @@ const ModalSecondary = (props) => {
             </div>
 
             <div className="opacity-25 fixed inset-0 z-15 bg-black"></div>
-        </>
+        </React.Fragment>
     }
-    </>
+    </React.Fragment>
   )
 }
 

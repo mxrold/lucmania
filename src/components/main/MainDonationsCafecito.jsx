@@ -1,3 +1,5 @@
+import React from 'react'
+
 const MainDonationsCafecito = () => {
   return (
     <div className='flex flex-col justify-center items-center sm:flex-row mt-6'>

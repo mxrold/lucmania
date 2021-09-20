@@ -1,3 +1,4 @@
+import React from 'react'
 import Logotype from '../assets/static/logotype.svg'
 import TMDB from '../assets/static/tmdb-logo.svg'
 

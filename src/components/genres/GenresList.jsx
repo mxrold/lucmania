@@ -1,3 +1,4 @@
+import React from 'react'
 import GenresItem from './GenresItem'
 
 const GenresList = ({ genres }) => {

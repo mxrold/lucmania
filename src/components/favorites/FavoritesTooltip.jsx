@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import ModalSecundary from '../global/ModalSecondary'
 
 const FavoritesTooltip = () => {
@@ -9,7 +9,7 @@ const FavoritesTooltip = () => {
     }
 
     return (
-        <>
+        <React.Fragment>
             <button className="w-6 h-6 ml-2 mt-2 text-sm font-medium bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300" onClick={handleChange} >
                 ?
             </button>
@@ -21,7 +21,7 @@ const FavoritesTooltip = () => {
                 showModal={showModal} 
                 setShowModal={setShowModal} 
             />
-        </>
+        </React.Fragment>
     )
 }
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import MainInformationButtons from './MainInformationButtons'
 import MainInformationText from './MainInformationText'
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const GenresItem = ({ item }) => {
   const [isPresset, setIsPresset] = useState(false)

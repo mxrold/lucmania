@@ -1,3 +1,4 @@
+import React from 'react'
 import FormatString from '../../utils/FormatStrings'
 import DefaultImage from '../../assets/static/default-poster-image.jpg'
 

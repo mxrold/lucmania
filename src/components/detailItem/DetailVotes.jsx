@@ -1,3 +1,5 @@
+import React from 'react'
+
 const DetailVotes = ({ votes }) => {
   const formatVoteAverage = (votes) => {
     if (votes < 50) {

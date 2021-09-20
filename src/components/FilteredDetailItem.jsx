@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
 import DetailPoster from './detailItem/DetailPoster'
@@ -76,11 +76,11 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       {
         showModal === false
         ? null
-        : <>
+        : <React.Fragment>
           {
             dataDetails === undefined 
             ? null
@@ -115,9 +115,9 @@ const FilteredDetailItem = ({ setShowModal, showModal }) => {
               </section>
           }
           < div className='opacity-25 fixed inset-0 z-5 bg-black' />
-        </>
+        </React.Fragment>
       }
-    </>
+    </React.Fragment>
   )
 }
 

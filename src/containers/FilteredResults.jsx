@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
 import NumberRandom from '../utils/NumberRandom'
@@ -85,7 +85,7 @@ const FilteredResults = () => {
   const nameFormatPath = () => path === '/movie' ? 'Películas' : 'Series'
 
   return (
-    <>
+    <React.Fragment>
       <MetaHead
         title={`${nameFormatPath()} - Resultados`}
         description='¿Te gustó algo y quieres conocer más? Ingresa a cada película o serie para ver su información, puntuaciones de usuarios, resumen, elenco principal y mucho más.'
@@ -98,7 +98,7 @@ const FilteredResults = () => {
           {
             loading === true || dataRandom === undefined
               ? <Loader numberItems={6} />
-              : <>
+              : <React.Fragment>
                 <FilteredList
                   dataRandom={dataRandom}
                   path={path}
@@ -107,14 +107,14 @@ const FilteredResults = () => {
                 />
 
                 <FilteredButton handleNewResults={handleNewResults} genre={genre} />
-              </>
+              </React.Fragment>
           }
         </div>
 
         <FilteredDetailItem showModal={showModal} setShowModal={setShowModal} />
 
       </main>
-    </>
+    </React.Fragment>
   )
 }
 

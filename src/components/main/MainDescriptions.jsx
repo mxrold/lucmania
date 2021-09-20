@@ -1,3 +1,4 @@
+import React from 'react'
 import MainDescriptionsItem from './MainDescriptionsItem'
 
 const MainDescriptions = () => {

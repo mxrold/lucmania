@@ -1,3 +1,4 @@
+import React from 'react'
 import Titleh2 from '../global/Titleh2'
 import MainDonationsCafecito from './MainDonationsCafecito'
 import MainTopSeparatorTitle from './MainTopSeparatorTitle'

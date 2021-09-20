@@ -1,6 +1,8 @@
+import React from 'react'
+
 const DetailTrailerVideo = ({ video }) => {
   return (
-    <>
+    <React.Fragment>
       {
         video === undefined || video.length === 0
           ? null
@@ -14,7 +16,7 @@ const DetailTrailerVideo = ({ video }) => {
             </a>
           </div>
       }
-    </>
+    </React.Fragment>
   )
 }
 

@@ -1,8 +1,9 @@
+import React from 'react'
 import DefaultCastImage from '../../assets/static/default-cast-image.jpg'
 
 const DetailCast = ({ cast }) => {
   return (
-    <>
+    <React.Fragment>
       {
         cast === undefined
           ? null
@@ -31,7 +32,7 @@ const DetailCast = ({ cast }) => {
               </div>
             </div>
       }
-    </>
+    </React.Fragment>
   )
 }
 

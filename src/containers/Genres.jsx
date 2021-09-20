@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import FetchData from '../utils/FetchData'
 import Loader from '../components/global/Loader'
@@ -30,7 +30,7 @@ const Genres = () => {
   const nameFormatPath = () => path === '/movie' ? 'películas' : 'series'
 
   return (
-    <>
+    <React.Fragment>
       <MetaHead
         title={nameFormatPath()}
         description='¿No te decides sobre qué película o serie mirar? Escoge un género, encuentra lo que más te guste, mira sus detalles y guardalo en favoritos para no perderlo.'
@@ -52,7 +52,7 @@ const Genres = () => {
                         </div>
                 }
       </main>
-    </>
+    </React.Fragment>
   )
 }
 

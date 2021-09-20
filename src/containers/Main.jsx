@@ -1,3 +1,4 @@
+import React from 'react'
 import Footer from '../components/Footer'
 import MetaHead from '../components/global/MetaHead'
 import MainInformation from '../components/main/MainInformation'
@@ -7,7 +8,7 @@ import MainDonations from '../components/main/MainDonations'
 
 const Main = () => {
   return (
-    <>
+    <React.Fragment>
       <MetaHead
         title='Home'
         description='Descubre películas y series sin buscar por ti mismo.'
@@ -27,7 +28,7 @@ const Main = () => {
       </main>
 
       <Footer />
-    </>
+    </React.Fragment>
   )
 }
 

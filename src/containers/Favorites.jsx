@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import MetaHead from '../components/global/MetaHead'
 import EmptyComponent from '../components/global/EmptyComponent'
 import FilteredDetailItem from '../components/FilteredDetailItem'
@@ -30,7 +30,7 @@ const Favorites = () => {
   }, [showModal === false])
 
   return (
-    <>
+    <React.Fragment>
       <MetaHead
         title='Favoritos'
         description='En cada búsqueda guarda todo el contenido que te guste para nunca perderte lo que quieras ver luego.'
@@ -46,7 +46,7 @@ const Favorites = () => {
                   text='¡Ve a elegir las películas y series que más te gusten! 🥳'
                   pathText='Volver al inicio'
                 />
-              : <>
+              : <React.Fragment>
                 <FavoritesInformationText
                   lengthMovie={favoritesDataMovie.length}
                   lengthTv={favoritesDataTv.length}
@@ -58,11 +58,11 @@ const Favorites = () => {
                 <FavoritesList list={favoritesDataTv} category='Series' showModal={showModal} setShowModal={setShowModal} />
 
                 <FilteredDetailItem showModal={showModal} setShowModal={setShowModal} />
-                </>
+                </React.Fragment>
           }
         </div>
       </div>
-    </>
+      </React.Fragment>
   )
 }
 

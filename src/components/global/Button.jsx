@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Button = ({ text, key, onClick, width }) => {
   return (
     <button
